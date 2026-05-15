@@ -2,8 +2,17 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { CheckCircle2, ArrowRight } from 'lucide-react'
+import {
+  ShieldCheck,
+  GraduationCap,
+  Briefcase,
+  FlaskConical,
+  IndianRupee,
+} from 'lucide-react'
+
 import { STATS, WHY_US } from '@/data/content'
 import CTABanner from '@/components/home/CTABanner'
+
 
 export const metadata: Metadata = {
   title: 'About Us',
@@ -12,6 +21,13 @@ export const metadata: Metadata = {
 }
 
 export default function AboutPage() {
+  const ICONS = {
+    shield: ShieldCheck,
+    graduation: GraduationCap,
+    briefcase: Briefcase,
+    flask: FlaskConical,
+    rupee: IndianRupee,
+  }
   return (
     <>
 
@@ -291,20 +307,30 @@ export default function AboutPage() {
           </div>
 
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {WHY_US.map((item, i) => (
-              <div
-                key={item.title}
-                className="group relative overflow-hidden rounded-2xl border border-sky-100 bg-white p-7 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-royal/20 hover:shadow-hero"
-              >
-                {/* Accent top bar on hover */}
-                <div className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-gradient-to-r from-crimson to-royal transition-transform duration-300 group-hover:scale-x-100" />
-                <div className="mb-4 flex h-13 w-13 items-center justify-center rounded-2xl bg-sky-50 text-3xl transition-colors duration-300 group-hover:bg-navy">
-                  <span className="group-hover:grayscale-0">{item.icon}</span>
+            {WHY_US.map((item) => {
+              const Icon = ICONS[item.icon as keyof typeof ICONS]
+
+              return (
+                <div
+                  key={item.title}
+                  className="group relative overflow-hidden rounded-2xl border border-sky-100 bg-white p-7 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-royal/20 hover:shadow-hero"
+                >
+                  <div className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-gradient-to-r from-crimson to-royal transition-transform duration-300 group-hover:scale-x-100" />
+
+                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-sky-50 text-navy transition-all duration-300 group-hover:bg-navy group-hover:text-white">
+                    <Icon className="h-6 w-6" />
+                  </div>
+
+                  <h3 className="font-display text-lg font-bold text-navy">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-2 text-sm leading-relaxed text-gray-500">
+                    {item.desc}
+                  </p>
                 </div>
-                <h3 className="font-display text-lg font-bold text-navy">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-gray-500">{item.desc}</p>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
       </section>

@@ -60,33 +60,28 @@ export const STATS = [
 
 export const WHY_US = [
   {
-    icon: '🏛️',
+    icon: 'shield',
     title: 'Government Recognised',
-    desc: 'ISO 9001:2015 certified. Our certificates are accepted for government job applications across India.',
+    desc: 'Our certificates are accepted for government job applications across India.',
   },
   {
-    icon: '👩‍🏫',
+    icon: 'graduation',
     title: 'Expert Faculty',
-    desc: 'Industry professionals with 10+ years of real-world experience. Not just teachers — practitioners.',
+    desc: 'Industry professionals with 10+ years of real-world experience.',
   },
   {
-    icon: '💼',
+    icon: 'briefcase',
     title: 'Placement Assistance',
-    desc: 'Dedicated placement cell with strong ties to local employers across Guwahati and Northeast India.',
+    desc: 'Dedicated placement support for students.',
   },
   {
-    icon: '🖥️',
+    icon: 'flask',
     title: 'Fully-Equipped Labs',
-    desc: 'Modern computer labs with the latest software. Every student gets their own system during lab sessions.',
+    desc: 'Modern labs with latest software and systems.',
   },
   {
-    icon: '💰',
+    icon: 'rupee',
     title: 'Affordable Fees',
-    desc: 'Quality education at prices that work for every family. EMI options available on all courses.',
-  },
-  {
-    icon: '📜',
-    title: 'Valued Certificates',
-    desc: 'Our certificates are recognised by government departments, banks, and private employers across Assam.',
+    desc: 'Quality education at affordable pricing.',
   },
 ]

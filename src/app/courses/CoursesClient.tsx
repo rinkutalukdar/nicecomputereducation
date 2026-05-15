@@ -1,6 +1,7 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
+import { useSearchParams, useRouter, usePathname } from 'next/navigation'
 import { Search, SlidersHorizontal, X } from 'lucide-react'
 import CourseCard from '@/components/courses/CourseCard'
 import { SectionHeading } from '@/components/ui'
@@ -15,9 +16,36 @@ interface Props {
 }
 
 export default function CoursesClient({ courses, categories }: Props) {
+  const searchParams = useSearchParams()
+  const router = useRouter()
+  const pathname = usePathname()
+
   const [search, setSearch] = useState('')
-  const [activeCategory, setActiveCategory] = useState('All')
+  const [activeCategory, setActiveCategory] = useState(() => {
+    // Initialise from URL on first render
+    const param = searchParams.get('category')
+    return param && categories.includes(param) ? param : 'All'
+  })
   const [activeLevel, setActiveLevel] = useState<typeof LEVELS[number]>('All')
+
+  // Sync if URL changes externally (e.g. back/forward, CategoryStrip link)
+  useEffect(() => {
+    const param = searchParams.get('category')
+    setActiveCategory(param && categories.includes(param) ? param : 'All')
+  }, [searchParams, categories])
+
+  // Update URL when category changes so the tab is bookmarkable/shareable
+  const handleCategoryChange = (cat: string) => {
+    setActiveCategory(cat)
+    const params = new URLSearchParams(searchParams.toString())
+    if (cat === 'All') {
+      params.delete('category')
+    } else {
+      params.set('category', cat)
+    }
+    // Replace so back-button goes to previous page, not each filter state
+    router.replace(`${pathname}?${params.toString()}`, { scroll: false })
+  }
 
   const filtered = useMemo(() => {
     return courses.filter((c) => {
@@ -34,8 +62,8 @@ export default function CoursesClient({ courses, categories }: Props) {
 
   const clearFilters = () => {
     setSearch('')
-    setActiveCategory('All')
     setActiveLevel('All')
+    handleCategoryChange('All')
   }
 
   const hasFilters = search !== '' || activeCategory !== 'All' || activeLevel !== 'All'
@@ -108,7 +136,7 @@ export default function CoursesClient({ courses, categories }: Props) {
             {['All', ...categories].map((cat) => (
               <button
                 key={cat}
-                onClick={() => setActiveCategory(cat)}
+                onClick={() => handleCategoryChange(cat)}
                 className={cn(
                   'px-4 py-2 rounded-xl text-sm font-medium transition-all',
                   activeCategory === cat
@@ -126,6 +154,11 @@ export default function CoursesClient({ courses, categories }: Props) {
             <p className="text-sm text-gray-500">
               Showing <span className="font-semibold text-navy">{filtered.length}</span> of{' '}
               {courses.length} courses
+              {activeCategory !== 'All' && (
+                <span className="ml-1">
+                  in <span className="font-semibold text-crimson">{activeCategory}</span>
+                </span>
+              )}
             </p>
           </div>
 
