@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import type { Metadata } from 'next'
 import CoursesClient from './CoursesClient'
 import { COURSES, CATEGORIES } from '@/data/courses'
@@ -9,5 +10,9 @@ export const metadata: Metadata = {
 }
 
 export default function CoursesPage() {
-  return <CoursesClient courses={COURSES} categories={CATEGORIES} />
+  return (
+    <Suspense fallback={null}>
+      <CoursesClient courses={COURSES} categories={CATEGORIES} />
+    </Suspense>
+  )
 }
