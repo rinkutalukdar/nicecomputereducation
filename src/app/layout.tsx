@@ -17,6 +17,9 @@ const dmSans = DM_Sans({
 })
 
 export const metadata: Metadata = {
+  icons: {
+    icon: '/favicon.ico',
+  },
   title: {
     default: 'NICE Computer Education — Pathsala, Assam',
     template: '%s | NICE Computer Education',
