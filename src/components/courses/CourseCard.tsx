@@ -42,9 +42,14 @@ export default function CourseCard({ course, featured = false }: CourseCardProps
 
           {/* Top row: category + popular */}
           <div className="absolute inset-x-3 top-3 flex items-center justify-between">
-            <span className="rounded-full border border-white/25 bg-white/15 px-3 py-1 text-[11px] font-bold text-white backdrop-blur-sm">
-              {course.category}
-            </span>
+            {course.categories.slice(0, 1).map((cat) => (
+              <span
+                key={cat}
+                className="rounded-full border border-white/25 bg-white/15 px-3 py-1 text-[11px] font-bold text-white backdrop-blur-sm"
+              >
+                {cat}
+              </span>
+            ))}
             {featured && (
               <span className="flex items-center gap-1 rounded-full bg-crimson px-3 py-1 text-[11px] font-bold text-white shadow-glow">
                 🔥 Popular

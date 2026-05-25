@@ -40,7 +40,7 @@ export default function CourseDetailPage({ params }: Props) {
   if (!course) notFound()
 
   const related = COURSES.filter(
-    (c) => c.slug !== course.slug && c.category === course.category
+    (c) => c.slug !== course.slug && c.categories.some((cat) => course.categories.includes(cat))
   ).slice(0, 3)
 
   const fallback = COURSES.filter((c) => c.slug !== course.slug && c.isFeatured).slice(0, 3)
@@ -73,9 +73,14 @@ export default function CourseDetailPage({ params }: Props) {
               <Badge variant={levelBadge[course.level]}>
                 <GraduationCap className="w-3 h-3 mr-1" /> {course.level}
               </Badge>
-              <span className="text-xs font-semibold bg-white/10 border border-white/20 text-sky-200 px-3 py-1 rounded-full">
-                {course.category}
-              </span>
+              {course.categories.map((cat) => (
+                <span
+                  key={cat}
+                  className="text-xs font-semibold bg-white/10 border border-white/20 text-sky-200 px-3 py-1 rounded-full"
+                >
+                  {cat}
+                </span>
+              ))}
             </div>
 
             <h1 className="font-display text-3xl md:text-4xl font-bold text-white leading-tight mb-4">
