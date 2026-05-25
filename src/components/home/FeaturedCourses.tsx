@@ -25,7 +25,7 @@ export default function FeaturedCourses() {
           </Link>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-3 lg:grid-cols-4 gap-6">
           {courses.map((course) => (
             <CourseCard key={course.slug} course={course} featured={course.isFeatured} />
           ))}

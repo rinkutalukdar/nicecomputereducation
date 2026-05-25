@@ -20,7 +20,7 @@ export default function WhyChooseUs() {
             <div className="grid grid-cols-2 gap-4">
               <div className="relative aspect-[3/4] rounded-2xl overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600&q=80"
+                  src="/static/image1.webp"
                   alt="Students in computer lab"
                   fill
                   className="object-cover"
@@ -37,7 +37,7 @@ export default function WhyChooseUs() {
                 </div>
                 <div className="relative flex-1 rounded-2xl overflow-hidden min-h-[140px]">
                   <Image
-                    src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=400&q=80"
+                    src="/static/lab.webp"
                     alt="Classroom session"
                     fill
                     className="object-cover"

@@ -12,6 +12,7 @@ import {
   ChevronLeft,
   ChevronRight,
   ArrowRight,
+  Code,
 } from 'lucide-react'
 import { COURSES } from '@/data/courses'
 import { cn } from '@/lib/utils'
@@ -27,6 +28,7 @@ const CATEGORIES = [
     lightText: 'text-pink-600',
     border: 'border-pink-100',
     ring: 'ring-pink-400',
+    count: 2,
   },
   {
     slug: 'Certificate',
@@ -38,6 +40,7 @@ const CATEGORIES = [
     lightText: 'text-royal-600',
     border: 'border-royal-100',
     ring: 'ring-royal-400',
+    count: 3,
   },
   {
     slug: 'Office Tools',
@@ -49,17 +52,7 @@ const CATEGORIES = [
     lightText: 'text-indigo-600',
     border: 'border-indigo-100',
     ring: 'ring-indigo-400',
-  },
-  {
-    slug: 'Advanced Diploma',
-    label: 'Advanced Diploma',
-    tagline: 'Deep-dive expertise',
-    Icon: BookOpen,
-    gradient: 'from-navy-500 to-navy-700',
-    lightBg: 'bg-navy-50',
-    lightText: 'text-navy-600',
-    border: 'border-navy-100',
-    ring: 'ring-navy-400',
+    count: 2,
   },
   {
     slug: 'PG Diploma',
@@ -71,6 +64,7 @@ const CATEGORIES = [
     lightText: 'text-slate-600',
     border: 'border-slate-100',
     ring: 'ring-slate-400',
+    count: 1,
   },
   {
     slug: 'Development',
@@ -82,6 +76,7 @@ const CATEGORIES = [
     lightText: 'text-sky-600',
     border: 'border-sky-100',
     ring: 'ring-sky-400',
+    count: 2,
   },
   {
     slug: 'Accounting',
@@ -93,13 +88,27 @@ const CATEGORIES = [
     lightText: 'text-emerald-600',
     border: 'border-emerald-100',
     ring: 'ring-emerald-400',
+    count: 2,
+  },
+  {
+    slug: 'Programming',
+    label: 'Programming',
+    tagline: 'Code from scratch',
+    Icon: Code,
+    gradient: 'from-violet-400 to-violet-600',
+    lightBg: 'bg-violet-50',
+    lightText: 'text-violet-600',
+    border: 'border-violet-100',
+    ring: 'ring-violet-400',
+    count: 2,
   },
 ]
 
+// ✅ Fixed: use c.categories.includes() instead of c.category ===
 const COURSE_COUNTS = Object.fromEntries(
   CATEGORIES.map((cat) => [
     cat.slug,
-    COURSES.filter((c) => c.category === cat.slug).length,
+    COURSES.filter((c) => c.categories.includes(cat.slug)).length,
   ])
 )
 

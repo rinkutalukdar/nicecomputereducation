@@ -57,7 +57,7 @@ export default function Footer() {
 
           {/* Trust badges */}
           <div className="mt-5 flex flex-wrap gap-2">
-            {['Govt. Certified', 'ISO 9001:2015'].map((badge) => (
+            {['Govt. Certified', 'Tailored Curriculum'].map((badge) => (
               <span
                 key={badge}
                 className="rounded-full border border-white/15 bg-white/8 px-3 py-1 text-xs font-medium text-sky-200"
@@ -147,11 +147,11 @@ export default function Footer() {
             </li>
             <li>
               <a
-                href="tel:+919864394437"
+                href="tel:+91-9864394437"
                 className="flex gap-3 text-sm text-sky-300 transition-colors hover:text-white"
               >
                 <Phone className="h-4 w-4 flex-shrink-0 text-crimson-400" />
-                +91-9864394437, 03666295920
+                +91-9864394437 / 03666295920
               </a>
             </li>
             <li>
@@ -185,11 +185,23 @@ export default function Footer() {
         <div className="container mx-auto flex flex-col items-center justify-between gap-2 px-4 py-5 text-xs text-sky-400 sm:flex-row">
           <span>© {new Date().getFullYear()} NICE Computer Education. All rights reserved.</span>
           <div className="flex items-center gap-4">
-            <span>Guwahati, Assam, India</span>
+            <span>Pathsala, Assam, India</span>
             <span className="h-3 w-px bg-white/20" />
             <Link href="/contact" className="transition-colors hover:text-white">
               Privacy Policy
             </Link>
+            <span className="h-3 w-px bg-white/20" />
+            <span>
+              Designed & developed by{' '}
+              <a
+                href="https://www.theskillnode.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-sky-300 transition-colors hover:text-white"
+              >
+                The SkillNode
+              </a>
+            </span>
           </div>
         </div>
       </div>

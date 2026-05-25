@@ -37,7 +37,7 @@ export default function AboutPage() {
       <section className="relative overflow-hidden bg-navy min-h-[48vh] flex items-center">
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1600&q=80&fit=crop&crop=center"
+            src="/static/about-bg.webp"
             alt=""
             fill
             priority
@@ -66,7 +66,7 @@ export default function AboutPage() {
             </span>
           </h1>
           <p className="mt-4 max-w-xl text-base text-sky-200 sm:text-lg">
-            For over two decades, Assam's most trusted name in computer education —
+            For over two decades, Pathsala's most trusted name in computer education —
             shaping careers and changing lives since 2000.
           </p>
           <nav className="mt-6 flex items-center gap-2 text-sm text-sky-400">
@@ -97,7 +97,7 @@ export default function AboutPage() {
             <div className="relative pb-10 pr-10">
               <div className="relative z-10 overflow-hidden rounded-3xl shadow-hero" style={{ aspectRatio: '3/4' }}>
                 <Image
-                  src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=700&q=85&fit=crop&crop=center"
+                  src="/static/front.webp"
                   alt="Students learning"
                   fill
                   className="object-cover transition duration-700 hover:scale-105"
@@ -113,7 +113,7 @@ export default function AboutPage() {
                 style={{ aspectRatio: '4/3' }}
               >
                 <Image
-                  src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=500&q=85&fit=crop&crop=center"
+                  src="/static/front-1.webp"
                   alt="Classroom session"
                   fill
                   className="object-cover transition duration-700 hover:scale-105"

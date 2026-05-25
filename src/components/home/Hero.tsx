@@ -62,7 +62,7 @@ export default function Hero() {
             {/* Badge */}
             <div className="mb-6 inline-flex w-fit items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold text-sky-200 backdrop-blur-sm">
               <span className="h-1.5 w-1.5 rounded-full bg-crimson-300 animate-pulse" />
-              Guwahati's Most Trusted Computer Institute
+              Pathsala's Most Trusted Computer Institute
             </div>
 
             {/* Headline */}
@@ -78,7 +78,7 @@ export default function Hero() {
 
             <p className="mt-5 max-w-md text-base leading-relaxed text-sky-200 sm:text-lg">
               Industry-aligned courses in programming, design, accounting and digital marketing.
-              Get certified. Get skilled. Get placed — right here in Guwahati.
+              Get certified. Get skilled. Get placed - right here in Pathsala, Assam.
             </p>
 
             {/* Trust checklist */}

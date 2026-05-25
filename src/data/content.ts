@@ -42,7 +42,7 @@ export const TESTIMONIALS = [
   {
     id: 5,
     name: 'Sunita Nath',
-    role: 'Digital Marketing Graduate · Social Media Manager',
+    role: 'PGDCA Graduate · Digital Marketing Specialist, Local Startup',
     content:
       'I was a housewife who wanted to contribute financially. The Digital Marketing course at NICE opened doors I never imagined. I now manage social media accounts for 4 local businesses from home.',
     rating: 5,

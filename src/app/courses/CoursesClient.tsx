@@ -52,9 +52,12 @@ export default function CoursesClient({ courses, categories }: Props) {
       const matchSearch =
         search === '' ||
         c.title.toLowerCase().includes(search.toLowerCase()) ||
-        c.category.toLowerCase().includes(search.toLowerCase()) ||
+        c.categories.some((cat) =>
+          cat.toLowerCase().includes(search.toLowerCase())
+        ) ||
         c.shortTitle.toLowerCase().includes(search.toLowerCase())
-      const matchCat = activeCategory === 'All' || c.category === activeCategory
+      const matchCat =
+        activeCategory === 'All' || c.categories.includes(activeCategory)
       const matchLevel = activeLevel === 'All' || c.level === activeLevel
       return matchSearch && matchCat && matchLevel
     })
@@ -66,7 +69,8 @@ export default function CoursesClient({ courses, categories }: Props) {
     handleCategoryChange('All')
   }
 
-  const hasFilters = search !== '' || activeCategory !== 'All' || activeLevel !== 'All'
+  const hasFilters =
+    search !== '' || activeCategory !== 'All' || activeLevel !== 'All'
 
   return (
     <>
@@ -79,8 +83,8 @@ export default function CoursesClient({ courses, categories }: Props) {
             Explore All Courses
           </h1>
           <p className="text-sky-200 text-lg max-w-xl mx-auto">
-            {courses.length} professional courses to choose from. Filter by category, level,
-            or search for exactly what you need.
+            {courses.length} professional courses to choose from. Filter by
+            category, level, or search for exactly what you need.
           </p>
         </div>
       </section>
@@ -152,11 +156,15 @@ export default function CoursesClient({ courses, categories }: Props) {
           {/* Results count */}
           <div className="flex items-center justify-between mb-6">
             <p className="text-sm text-gray-500">
-              Showing <span className="font-semibold text-navy">{filtered.length}</span> of{' '}
-              {courses.length} courses
+              Showing{' '}
+              <span className="font-semibold text-navy">{filtered.length}</span>{' '}
+              of {courses.length} courses
               {activeCategory !== 'All' && (
                 <span className="ml-1">
-                  in <span className="font-semibold text-crimson">{activeCategory}</span>
+                  in{' '}
+                  <span className="font-semibold text-crimson">
+                    {activeCategory}
+                  </span>
                 </span>
               )}
             </p>
@@ -166,14 +174,22 @@ export default function CoursesClient({ courses, categories }: Props) {
           {filtered.length > 0 ? (
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {filtered.map((course) => (
-                <CourseCard key={course.slug} course={course} featured={course.isFeatured} />
+                <CourseCard
+                  key={course.slug}
+                  course={course}
+                  featured={course.isFeatured}
+                />
               ))}
             </div>
           ) : (
             <div className="text-center py-24">
               <div className="text-5xl mb-4">🔍</div>
-              <h3 className="font-display font-bold text-navy text-xl mb-2">No courses found</h3>
-              <p className="text-gray-400 mb-6">Try adjusting your filters or search term.</p>
+              <h3 className="font-display font-bold text-navy text-xl mb-2">
+                No courses found
+              </h3>
+              <p className="text-gray-400 mb-6">
+                Try adjusting your filters or search term.
+              </p>
               <button onClick={clearFilters} className="btn-primary">
                 Clear filters
               </button>
