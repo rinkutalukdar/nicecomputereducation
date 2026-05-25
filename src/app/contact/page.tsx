@@ -44,19 +44,23 @@ const CONTACT_ITEMS = [
 const FAQS = [
   {
     q: 'Is there a free demo class available?',
-    a: 'Yes! We offer a free demo session for any course. Just contact us or walk into our centre and we\'ll arrange it.',
+    a: 'Yes! We offer a free demo session for any course. Just contact us or walk into our centre and we\'ll arrange it for you.',
   },
   {
-    q: 'Are your certificates valid for government jobs?',
-    a: 'Yes. Our institute is ISO 9001:2015 certified and our certificates are accepted by government departments across India.',
+    q: 'Are your certificates recognised by the government?',
+    a: 'Yes. Our institute is government certified and our certificates are widely accepted by government departments and private employers across Assam and India.',
   },
   {
     q: 'Can I pay fees in installments?',
-    a: 'Absolutely. We offer flexible EMI options for all courses. Speak with our admissions team to discuss what works best for you.',
+    a: 'Absolutely. We offer flexible payment options for all courses. Speak with our admissions team to find a plan that works best for you.',
+  },
+  {
+    q: 'What makes your institute different from others?',
+    a: 'We offer a tailored curriculum designed around real job requirements, fully equipped computer labs with modern hardware, and small batch sizes — so every student gets personal attention from day one.',
   },
   {
     q: 'What is the batch size per class?',
-    a: 'We keep batches small — maximum 20 students per batch — to ensure every student gets individual attention.',
+    a: 'We keep batches small — maximum 20 students per batch — to ensure every student gets individual attention and hands-on lab time.',
   },
   {
     q: 'Do you offer placement assistance after course completion?',
