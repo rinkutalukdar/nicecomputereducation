@@ -172,11 +172,15 @@ export const COURSES: Course[] = [
     isFeatured: false,
     imageUrl: '/static/courses/dca.webp',
     highlights: [
+      'Computer Fundamentals',
+      'Operating System — MS-DOS',
+      'Windows & GUI Concept',
       'MS Office — Word, Excel, PowerPoint',
-      'Web Page Designing with HTML',
+      'DBMS using FoxPro (Programming)',
       'Database Designing with MS-Access',
-      'DBMS using FoxPro programming',
-      'BASIC language programming',
+      'Web Page Designing — HTML & FrontPage',
+      'Programming with BASIC Language',
+      'Internet Browsing & Email Handling',
     ],
     curriculum: [
       {
@@ -227,11 +231,16 @@ export const COURSES: Course[] = [
     isFeatured: true,
     imageUrl: '/static/courses/pgdca.webp',
     highlights: [
-      'Visual Basic application development',
-      'DBMS with FoxPro programming',
+      'Computer Fundamentals',
+      'Operating System — MS-DOS',
+      'Windows & GUI Concept',
+      'MS Office — Word, Excel, PowerPoint',
+      'DBMS using FoxPro (Programming)',
       'Database Designing with MS-Access',
       'Web Page Designing — HTML & FrontPage',
-      'BASIC & C Language programming',
+      'Programming with BASIC & C Language',
+      'Application Designing with Visual Basic',
+      'Internet Browsing & Email Handling',
     ],
     curriculum: [
       {
