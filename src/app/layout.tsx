@@ -3,6 +3,7 @@ import { Playfair_Display, DM_Sans } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -44,7 +45,6 @@ export const metadata: Metadata = {
     title: 'NICE Computer Education — Pathsala, Assam',
     description:
       'Government certified computer education in Pathsala, Assam. DCA, ADCA, Web Design, Tally GST, Digital Marketing and more.',
-    // opengraph-image.tsx in this directory is auto-picked up by Next.js
   },
   twitter: {
     card: 'summary_large_image',
@@ -62,6 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main>{children}</main>
         <Footer />
       </body>
+      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
     </html>
   )
 }
